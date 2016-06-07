@@ -1,0 +1,48 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+This project adheres to [Semantic Versioning](http://semver.org/).
+Formatting from http://keepachangelog.com/
+
+##### Formatting #####
+[1].[2].[3]
+1 - Major version
+2 - Minor version
+3 - Patch
+#####################
+
+#### Pre Alpha! ####
+
+## [Unreleased]
+
+### Added
+- Border below stats.
+
+### Changed
+- Passive1 requires 100 clicks rather than 100 kills.
+- Stats window slides up when your mouse leaves it.
+- Worksafe mode flipswitch changed to a button.
+
+### Fixed
+- Worksafe mode working.
+
+
+## [0.2.0] - 2015-11-18
+### Added
+- Followers and Followers per second.
+- A stats button the will show stats.
+- An about button that will show about.
+- Tooltips for the settings, stats, and about buttons.
+- Checkbox for worksafe mode.
+- Clicks to stat menu.
+- Submit bugs in the about section.
+
+### Fixed
+- Tooltip bug (see bugs.txt).
+
+### Changed
+- Saves are now stored as objects rather than a csv string.
+- Text spacing for the variables.
+
+## [0.1.0] - 2015-11-12
+### Added
+- Current game and all it's "glory"!

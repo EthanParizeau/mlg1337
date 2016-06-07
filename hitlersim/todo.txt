@@ -1,0 +1,20 @@
+## Add ##
+- Implement databinding
+- Worksafe mode
+- Stat panel
+- About panel
+
+## Fix ##
+
+## Remove ##
+- Scrollbar, but still be able to scroll
+
+## Change ##
+
+## Finish ##
+- Worksafe mode
+- humans.txt
+
+
+
+

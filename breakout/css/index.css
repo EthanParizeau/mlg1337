@@ -1,0 +1,51 @@
+body
+{
+    background-color: black;
+}
+
+*
+{
+    padding: 0;
+    margin: 0;
+}
+
+canvas
+{
+    background: #eee;
+    display: block;
+    margin: 0;
+}
+
+#debug
+{
+    font-family: sans-serif;
+    color: #0095DD;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+}
+
+#score
+{
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    color: #0095DD;
+    font-family: Arial;
+    font-size: 150%;
+    left: 10px;
+
+}
+
+#lives
+{
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    color: #0095DD;
+    font-family: Arial;
+    font-size: 150%;
+    right: 10px;
+
+}

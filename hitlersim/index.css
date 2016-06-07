@@ -1,0 +1,102 @@
+/* TODO: comment */
+
+body
+{
+    padding-top: 70px;
+}
+
+button:focus
+{
+    outline:0 !important;
+}
+
+body
+{
+    text-align: center;
+}
+
+#settingsicon, #abouticon, #staticon
+{
+
+    background-color: transparent;
+    position: absolute;
+    font-size: 24px;
+}
+
+#settingsicon
+{
+    right: 0;
+    top: 0;
+}
+
+#staticon
+{
+    right: 0;
+    top: 30px;
+}
+
+#abouticon
+{
+    right: 0;
+    top: 60px;
+}
+
+#settingsContent, #statsContent, #aboutContent
+{
+    display: none;
+}
+
+.data
+{
+    text-align: left;
+    line-height: 75%;
+}
+
+.title
+{
+    padding: 2px;
+    background-color: rgba(120, 120, 120, .5);
+    font-weight: normal;
+}
+
+#mainbtn
+{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.upgrades
+{
+    margin: auto;
+}
+
+.upgrade
+{
+    padding-bottom: 10px;
+}
+
+.row
+{
+    margin: auto;
+    display: none;
+}
+
+#row1
+{
+    display: block;
+}
+
+#background
+{
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+}
+
+#statsContent
+{
+    margin: auto;
+    width: 85%;
+    border-bottom: solid black 1px;
+}

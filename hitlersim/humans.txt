@@ -1,0 +1,18 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Lead Developer: Ethan Parizeau
+    GitHub: https://github.com/Armadow/
+
+    Information: Jacob Decker
+
+# THANKS
+
+    Jacob Decker
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css

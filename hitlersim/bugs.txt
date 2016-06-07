@@ -1,0 +1,4 @@
+## All known bugs ##
+
+Tooltips sometimes get stuck and don't disappear when you hover over them.
+In Firefox the icons look like crap... need to figure out how to fix it... one day.

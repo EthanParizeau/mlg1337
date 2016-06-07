@@ -1,0 +1,83 @@
+#pentagram
+{
+    margin:0 auto;
+    margin-top:45px;
+    margin-bottom:75px;
+    height:500px;
+    width:500px;
+    border-radius:500px;
+    border:5px solid #bb0000;
+    position:relative;
+    animation-name: spin;
+    animation-duration: 5s;
+}
+
+#pentagram div
+{
+    position:absolute;
+    background:#bb0000;
+    width:476px;
+    height:5px;
+}
+
+#star_1
+{
+    top:328px;
+    left:12px;
+}
+
+#star_2
+{
+    top:183px;
+    left:-38px;
+    transform:rotate(-37deg);
+    -ms-transform:rotate(-37deg);
+    -webkit-transform:rotate(-37deg);
+}
+
+#star_3
+{
+    top:183px;
+    right:-38px;
+    transform:rotate(37deg);
+    -ms-transform:rotate(37deg);
+    -webkit-transform:rotate(37deg);
+}
+
+#star_4
+{
+    top:268px;
+    right:-60px;
+    width:480px !important;
+    transform:rotate(107deg);
+    -ms-transform:rotate(107deg);
+    -webkit-transform:rotate(107deg);
+}
+
+#star_5
+{
+    top:268px;
+    left:-60px;
+    width:480px !important;
+    transform:rotate(-107deg);
+    -ms-transform:rotate(-107deg);
+    -webkit-transform:rotate(-107deg);
+}
+
+@-moz-keyframes spin
+{
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin
+{
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin
+{
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}

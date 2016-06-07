@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simulator</title>
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="../css/toastr.css">
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/sightglass/index.js"></script>
+    <script type="text/javascript" src="../js/rivetjs/rivets.js"></script>
+    <script type="text/javascript" src="../js/toastr.js"></script>
+    <script type="text/javascript" src="../js/sjcl.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/UI.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+            $("#settingsicon").tooltip({title: "Settings", placement: "left", animation: "true"});
+            $("#staticon").tooltip({title: "Stats", placement: "left", animation: "true"});
+            $("#abouticon").tooltip({title: "About", placement: "left", animation: "true"});
+        });
+    </script>
+</head>
+<body>
+    <!-- Settings, Stats, and About buttons -->
+    <div class="buttons">
+        <button type="button" class="btn" id="settingsicon">
+            <span class="glyphicon glyphicon-cog"></span>
+        </button>
+        <button type="button" class="btn" id="staticon">
+            <span class="glyphicon glyphicon-info-sign"></span>
+        </button>
+        <button type="button" class="btn" id="abouticon">
+            <span class="glyphicon glyphicon-question-sign"></span>
+        </button>
+    </div>
+
+    <!-- Settings container -->
+    <div id="settingsContent">
+        <p><b>Settings</b></p>
+        <button class="btn btn-default" onclick="saveGame()">Save</button>
+        <button class="btn btn-default" onclick="loadGame()">Load</button><br><br>
+        <p><b>Worksafe Mode</b></p>
+        <button id="worksafeon" class="btn btn-default" type="button">On</button>
+        <button id="worksafeoff" class="btn btn-default" type="button">Off</button>
+    </div>
+
+    <!-- Stat container -->
+    <div id="statsContent">
+        <p><b>Stats</b></p>
+        <p id="Clicks">Clicks: 0 {stats.clicks}</p>
+    </div>
+
+    <!-- About container -->
+    <div id="aboutContent">
+        <p><b>About</b></p>
+        <button type="button" class="btn" data-toggle="modal" data-target=".bs-example-modal-sm">Submit Bug</button><br>
+        <a href="changelog.txt">Change log</a><br>
+        <a href="humans.txt">Thanks</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Report bug!</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="basic-addon1">Bug:</span>
+                        <input id="bug" type="text" class="form-control" placeholder="Bug" aria-describedby="basic-addon1">
+                    </div>
+                    <p>Thanks :) this really helps fix bugs</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="bugSubmit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Where all the values are shown -->
+    <div class="container">
+
+        <!-- Div for data -->
+        <div class="data">
+            <br>
+            <p id="Coins">Coins: 0</p>
+            <p id="CoinsPerClick">Coins/click: 0</p>
+            <p id="CoinsPerSec">Coins/s: 0</p>
+            <p id="Followers">Followers: 0</p>
+            <p id="FollowersPerSec">Followers/s: 0</p>
+            <p id="Killed">Killed: 0</p>
+            <p id="KilledPerSec">Kills/s: 0</p>
+        </div>
+
+        <!-- Main button -->
+        <div class="buttons">
+            <button id="mainbtn" type="button">Cleanse</button>
+        </div>
+
+        <!-- Div for upgrades -->
+        <div class="upgrades">
+
+            <h4 class="title">Upgrades</h4>
+
+            <!-- Row 1 -->
+            <div id="row1" class="row">
+                <div class="col-md-4"><h1>Arsenal</h1></div>
+                <div class="col-md-4"><h1>Political</h1></div>
+                <div class="col-md-4"><h1>Passives</h1></div>
+
+                <div class="upgrade col-md-4">
+                    <p>Upgrade 1 - Description 1</p>
+                    <p>+ 1 coin per click!</p>
+                    <p id="ownNum-1-1">You own: 0</p>
+                    <p id="cost-1-1">Cost: 10 coins!</p>
+                    <button type="button" class="btn btn-default" onclick="getUpgrade(this)" data-upgrade-num="1">Unlock</button>
+                </div>
+
+                <div class="upgrade col-md-4">
+                    <p>Upgrade 1 - Description 1</p>
+                    <p>+ 1 coin per sec!</p>
+                    <p id="ownNum-1-2">You own: 0</p>
+                    <p id="cost-1-2">Cost: 20 coins!</p>
+                    <button type="button" class="btn btn-default" onclick="getUpgrade(this)" data-upgrade-num="2">Unlock</button>
+                </div>
+
+                <div class="upgrade col-md-4" id="passive-1">
+                    <p>Passive 1 - Description 1</p>
+                    <p>+ 10 kills per sec!</p>
+                    <p id="cost-2-1">Need 100 kills.</p>
+                </div>
+
+            </div>
+
+            <!-- Row 2 -->
+            <div id="row2" class="row">
+                <div class="upgrade col-md-4">
+                    <p>Upgrade 1 - Description 1</p>
+                    <p>Cost: 10 coins</p>
+                    <p id="ownNum-1-3">You own: 0</p>
+                    <p id="cost-1-3">Cost: 20 coins!</p>
+                    <button type="button" class="btn btn-default">Unlock</button>
+                </div>
+
+                <div class="upgrade col-md-4">
+                    <p>Upgrade 1 - Description 1</p>
+                    <p id="ownNum-1-4">You own: 0</p>
+                    <p id="cost-1-4">Cost: null</p>
+                    <button type="button" class="btn btn-default">Button 1</button>
+                </div>
+
+                <div class="upgrade col-md-4" id="passive-2">
+                    <p>Passive 1 - Description 1</p>
+                    <p>+ null!</p>
+                    <p id="cost-2-2">Need null kills.</p>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div id="row3" class="row">
+                <div class="upgrade col-md-4">
+                    <p>Upgrade 1 - Description 1</p>
+                    <p>Cost: 10 coins</p>
+                    <p id="ownNum-1-5">You own: 0</p>
+                    <p id="cost-1-5">Cost: 20 coins!</p>
+                    <button type="button" class="btn btn-default">Unlock</button>
+                </div>
+
+                <div class="upgrade col-md-4">
+                    <p>Upgrade 1 - Description 1</p>
+                    <p id="ownNum-1-6">You own: 0</p>
+                    <p id="cost-1-6">Cost: null</p>
+                    <button type="button" class="btn btn-default">Button 1</button>
+                </div>
+
+                <div class="upgrade col-md-4" id="passive-3">
+                    <p>Passive 1 - Description 1</p>
+                    <p>+ null!</p>
+                    <p id="cost-2-3">Need null kills.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Background of page -->
+    <div id="background">
+
+    </div>
+
+</body>
+</html>
